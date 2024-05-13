@@ -10,11 +10,17 @@ public class Player : MonoBehaviour
     bool isFacingRight = false;
     float jumpPower = 4f;
     bool isJumping = false;
+    bool isCollecting = false;
+    
 
     Rigidbody2D rb;
 
     public AudioSource pickupSound;
     public AudioSource jump;
+
+    public Sprite Idel;
+    public Sprite Running;
+    public Sprite Collecting;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +34,12 @@ public class Player : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
 
         FlipSprite();
+
+        if(horizontalInput == 0f && !isJumping){
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Idel;
+        } else if(!isCollecting){
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Running;
+        }
 
         if(Input.GetButtonDown("Jump") && !isJumping)
         {
@@ -63,9 +75,11 @@ public class Player : MonoBehaviour
     {
         if(collision.CompareTag("Collectible"))
         {
+            isCollecting = true;
             Destroy(collision.gameObject);
             pickupSound.Play();
-
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Collecting;
+            isCollecting = false;
         }
     }
 }
