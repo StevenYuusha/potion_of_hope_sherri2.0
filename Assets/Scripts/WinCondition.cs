@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour
     private void WinGame()
     {
         // Load the winning scene
-        SceneManager.LoadScene("WinScene");
+        SceneManager.LoadScene(3);
     }
 }
 
