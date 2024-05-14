@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -11,11 +12,12 @@ public class Player : MonoBehaviour
     float jumpPower = 4.5f;
     bool isJumping = false;
     bool isCollecting = false;
+    private int collectedIngredients = 0;
 
 
 
     Rigidbody2D rb;
-
+    
     public AudioSource pickupSound;
     public AudioSource jump;
 
@@ -36,18 +38,17 @@ public class Player : MonoBehaviour
 
         FlipSprite();
 
-        if (horizontalInput == 0f && !isJumping)
+        if (isCollecting)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Collecting;
+        }
+        else if (horizontalInput == 0f && !isJumping)
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = Idel;
         }
         else
         {
-            if (isCollecting)
-            {
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = Collecting;
-            }
-            else
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = Running;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Running;
         }
 
 
@@ -84,10 +85,11 @@ public class Player : MonoBehaviour
     {
         if (collision.CompareTag("Collectible"))
         {
-
+            isCollecting = true;
             Destroy(collision.gameObject);
             pickupSound.Play();
-
+            collectedIngredients++;
+            isCollecting = false;
 
         }
     }

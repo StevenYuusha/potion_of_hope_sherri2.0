@@ -10,6 +10,10 @@ public class MainMenuController : MonoBehaviour
     {
         SceneManager.LoadScene("MainGame"); 
     }
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene("MainGame"); 
+    }
 
     public void CreditsGame()
     {
@@ -19,6 +23,11 @@ public class MainMenuController : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
 }
