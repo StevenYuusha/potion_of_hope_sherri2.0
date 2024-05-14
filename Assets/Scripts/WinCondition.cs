@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        door.SetActive(false); // Close the door initially
+        door.SetActive(true); // Close the door initially
     }
 
     private void Update()
@@ -47,17 +47,19 @@ public class CollectibleItem : MonoBehaviour
 {
     private GameController gameController;
 
-    private void Start()
-    {
-        gameController = FindObjectOfType<GameController>();
-        if (gameController == null)
-        {
-            Debug.LogError("GameController not found in the scene.");
-        }
-    }
+  private void Start()
+   {
+       gameController = FindObjectOfType<GameController>();
+       if (gameController == null)
+       {
+           Debug.LogError("GameController not found in the scene.");
+       }
+   }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        SceneManager.LoadScene(3);
+
         if (collision.CompareTag("Player"))
         {
             gameController.IngredientCollected();
