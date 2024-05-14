@@ -8,13 +8,19 @@ public class Player : MonoBehaviour
     float horizontalInput;
     float moveSpeed = 5f;
     bool isFacingRight = false;
-    float jumpPower = 4f;
+    float jumpPower = 5f;
     bool isJumping = false;
+
+
 
     Rigidbody2D rb;
 
     public AudioSource pickupSound;
     public AudioSource jump;
+
+    public Sprite Idel;
+    public Sprite Running;
+    public Sprite Collecting;
 
     // Start is called before the first frame update
     void Start()
@@ -29,12 +35,21 @@ public class Player : MonoBehaviour
 
         FlipSprite();
 
-        if(Input.GetButtonDown("Jump") && !isJumping)
+        if (horizontalInput == 0f && !isJumping)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Idel;
+        }
+        else
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Running;
+        }
+
+
+        if (Input.GetButtonDown("Jump") && !isJumping)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             isJumping = true;
             jump.Play();
-
         }
     }
 
@@ -45,13 +60,13 @@ public class Player : MonoBehaviour
 
     void FlipSprite()
     {
-        if(isFacingRight && horizontalInput > 0f || !isFacingRight && horizontalInput < 0f) 
+        if (isFacingRight && horizontalInput > 0f || !isFacingRight && horizontalInput < 0f)
         {
-                isFacingRight = !isFacingRight;
-                Vector3 ls = transform.localScale;
-                ls.x *= -1f;
-                transform.localScale = ls;
-            }       
+            isFacingRight = !isFacingRight;
+            Vector3 ls = transform.localScale;
+            ls.x *= -1f;
+            transform.localScale = ls;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -61,10 +76,12 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Collectible"))
+        if (collision.CompareTag("Collectible"))
         {
+
             Destroy(collision.gameObject);
             pickupSound.Play();
+
 
         }
     }
