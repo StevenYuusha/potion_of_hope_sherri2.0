@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     bool isFacingRight = false;
     float jumpPower = 5f;
     bool isJumping = false;
+    bool isCollecting = false;
 
 
 
@@ -41,7 +42,12 @@ public class Player : MonoBehaviour
         }
         else
         {
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = Running;
+            if (isCollecting)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Collecting;
+            }
+            else
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = Running;
         }
 
 
