@@ -6,9 +6,9 @@ public class Player : MonoBehaviour
 {
 
     float horizontalInput;
-    float moveSpeed = 5f;
+    float moveSpeed = 4f;
     bool isFacingRight = false;
-    float jumpPower = 5f;
+    float jumpPower = 4.5f;
     bool isJumping = false;
     bool isCollecting = false;
 
