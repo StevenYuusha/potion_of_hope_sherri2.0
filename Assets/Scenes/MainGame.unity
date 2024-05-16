@@ -10809,7 +10809,7 @@ Transform:
   m_GameObject: {fileID: 133413864}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.366342, y: -3.45, z: -0.06497661}
+  m_LocalPosition: {x: -5.373, y: -3.459, z: -0.06497661}
   m_LocalScale: {x: 0.020017141, y: 0.020017141, z: 0.040034283}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10876,13 +10876,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b517d1ae4da37b24da47a4da80b102d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isJumping: 0
   pickupSound: {fileID: 0}
   jump: {fileID: 0}
   Idel: {fileID: 21300000, guid: 2866767836f6d384fad3420b9efe7bb3, type: 3}
   Running: {fileID: 21300000, guid: fbb4ed8f2dafc28429ebcc82ea70e6f4, type: 3}
   Collecting: {fileID: 21300000, guid: d3c8b6a0d9446bb4b86cb5ffa7f0cd76, type: 3}
---- !u!61 &133413872
-BoxCollider2D:
+--- !u!58 &133413872
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10913,19 +10914,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.598113, y: -1.4225221}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 40, y: 30.000002}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: -0.5366971}
   serializedVersion: 2
-  m_Size: {x: 10.970106, y: 26.807362}
-  m_EdgeRadius: 0
+  m_Radius: 14.096111
 --- !u!1 &141321831
 GameObject:
   m_ObjectHideFlags: 0
@@ -11378,7 +11369,7 @@ Transform:
   m_GameObject: {fileID: 224451903}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.633658, y: 3.456947, z: -0.06497661}
+  m_LocalPosition: {x: -4.726, y: -3.822, z: -0.06497661}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11742,7 +11733,6 @@ GameObject:
   m_Component:
   - component: {fileID: 329784682}
   - component: {fileID: 329784683}
-  - component: {fileID: 329784684}
   m_Layer: 0
   m_Name: Light 2D
   m_TagString: Untagged
@@ -11815,20 +11805,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!114 &329784684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 329784681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3995830664052c644b833837f1d71009, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalIngredients: 7
-  door: {fileID: 0}
 --- !u!1 &354855100
 GameObject:
   m_ObjectHideFlags: 0
@@ -12529,7 +12505,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.183656, y: -3.2842164, z: -10}
+  m_LocalPosition: {x: -4.212077, y: -3.2823985, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13584,7 +13560,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalIngredients: 7
+  collectedIngredients: 6
   door: {fileID: 224451903}
+  doorOpenSprite: {fileID: 0}
 --- !u!4 &1019683036
 Transform:
   m_ObjectHideFlags: 0
@@ -21916,7 +21894,7 @@ Transform:
   m_GameObject: {fileID: 2074204039}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.7, y: -3.8469472, z: -10}
+  m_LocalPosition: {x: -5.706658, y: -3.8559473, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:

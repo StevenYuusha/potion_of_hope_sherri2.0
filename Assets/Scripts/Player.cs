@@ -10,9 +10,9 @@ public class Player : MonoBehaviour
     float moveSpeed = 4f;
     bool isFacingRight = false;
     float jumpPower = 4.5f;
-    bool isJumping = false;
+    public bool isJumping = false;
     bool isCollecting = false;
-    private int collectedIngredients = 0;
+    private GameController gameController;
 
 
 
@@ -28,6 +28,11 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameController = FindObjectOfType<GameController>();
+        if (gameController == null)
+        {
+            Debug.LogError("GameController not found in the scene.");
+        }
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -56,7 +61,7 @@ public class Player : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             isJumping = true;
-            jump.Play();
+            //jump.Play();
         }
     }
 
@@ -87,10 +92,10 @@ public class Player : MonoBehaviour
         {
             isCollecting = true;
             Destroy(collision.gameObject);
-            pickupSound.Play();
-            collectedIngredients++;
+            //pickupSound.Play();
+        
             isCollecting = false;
-
+            gameController.IngredientCollected();
         }
     }
 }
