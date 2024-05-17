@@ -30,7 +30,6 @@ public class GameController : MonoBehaviour
         
         isOpen = true;
         door.GetComponent<SpriteRenderer>().sprite = doorOpenSprite;
-
     }
 
     private void WinGame()
