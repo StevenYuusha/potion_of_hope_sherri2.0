@@ -10877,8 +10877,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isJumping: 0
-  pickupSound: {fileID: 0}
-  jump: {fileID: 0}
+  pickupSound: {fileID: 1816371244}
+  jump: {fileID: 589364361}
   Idel: {fileID: 21300000, guid: 2866767836f6d384fad3420b9efe7bb3, type: 3}
   Running: {fileID: 21300000, guid: fbb4ed8f2dafc28429ebcc82ea70e6f4, type: 3}
   Collecting: {fileID: 21300000, guid: d3c8b6a0d9446bb4b86cb5ffa7f0cd76, type: 3}
@@ -11669,7 +11669,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 307288891}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
