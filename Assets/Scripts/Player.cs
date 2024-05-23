@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             isJumping = true;
-            //jump.Play();
+            jump.Play();
         }
     }
 
@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
         {
             isCollecting = true;
             Destroy(collision.gameObject);
-            //pickupSound.Play();
+            pickupSound.Play();
         
             isCollecting = false;
             gameController.IngredientCollected();
